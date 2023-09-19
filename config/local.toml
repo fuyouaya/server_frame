@@ -1,0 +1,12 @@
+[mysql]
+connMaxLifetime = "300s"
+debug = true
+dsn = "root:123456@tcp(127.0.0.1:3306)/im?charset=utf8mb4&parseTime=True&loc=Local"
+level = "panic"
+maxIdleConns = 50
+maxOpenConns = 100
+
+[redis]
+addr = "127.0.0.1:6379"
+password = ""
+db = 0
