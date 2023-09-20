@@ -5,7 +5,9 @@ import (
 	swaggerFiles "github.com/swaggo/files"
 	gs "github.com/swaggo/gin-swagger"
 	_ "server_frame/docs"
+	"server_frame/pkg/core"
 	"server_frame/pkg/invoker"
+	v1 "server_frame/pkg/router/api/v1"
 )
 
 func HttpServer() *gin.Engine {
@@ -26,4 +28,9 @@ func apiRouter(c *gin.Engine, prefix string) {
 			"msg": "hello",
 		})
 	})
+
+	{
+		user := r.Group("/user")
+		user.POST("/login", core.Handle(v1.UserLogin))
+	}
 }
